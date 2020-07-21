@@ -53,7 +53,7 @@ namespace gridcontrol_coveredranges
             if(e.CellRowColumnIndex.RowIndex == 2 && e.CellRowColumnIndex.ColumnIndex == 2)
             {
                 //Set the range to be covered.
-                e.Range = new CoveredCellInfo(e.CellRowColumnIndex.ColumnIndex, e.CellRowColumnIndex.RowIndex, e.CellRowColumnIndex.ColumnIndex + 3, e.CellRowColumnIndex.RowIndex + 3);
+                e.Range = new CoveredCellInfo(2, 2, 5, 5);
                 e.Handled = true;
             }
         }       
