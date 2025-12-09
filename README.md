@@ -1,6 +1,6 @@
-# WPF GridControl coveredcells
+# WPF GridControl CoveredCells
 
-This repository contains the samples that demonstrates various options in covered cell feature of [WPF GridControl](https://help.syncfusion.com/wpf/gridcontrol/overview).
+This repository contains the samples that demonstrates various options in covered cell feature of [WPF GridControl](https://www.syncfusion.com/wpf-controls/excel-like-grid).
 
 ### Creating covered cells using QueryCoveredRange event
 
@@ -24,6 +24,8 @@ private void Grid_QueryCoveredRange(object sender, Syncfusion.Windows.Controls.G
 }
 ```
 
+![GridControl with covered cells applied using QueryCoveredRange event](CoveredCellsUsingQueryCoveredRange.png)
+
 ### Find whether a cell in covered range
 
 When you want to find a cell in covered ranges, you can use the [GetCoveredCell](https://help.syncfusion.com/cr/wpf/Syncfusion.Windows.Controls.Grid.GridCoveredCellInfoCollection.html#Syncfusion_Windows_Controls_Grid_GridCoveredCellInfoCollection_GetCoveredCell_System_Int32_System_Int32_) method. If the specified cell with row index and column index is inside in `GetCoveredCell`, a range will be returned.
@@ -36,6 +38,8 @@ grid.Model.CoveredRanges.Add(new CoveredCellInfo(2, 2, 5, 5));
 CoveredCellInfo coverRanges = grid.Model.CoveredRanges.GetCoveredCell(2, 3);
 MessageBox.Show("Cover range for cell (2,3) is " + "R" + coverRanges.Left + "C" + coverRanges.Top + ":" + "R" + coverRanges.Bottom + "C" + coverRanges.Right);
 ```
+
+![Image showing cell which is in covered range](FindingCellinCoveredRange.png)
 
 ### Remove covered range at run time
 
@@ -65,12 +69,21 @@ private void Button_Click(object sender, RoutedEventArgs e)
     grid.InvalidateCells();
 }
 ```
+The below image provides covered range at run time before removing
+
+![Gridcontrol before removing the covered range](BeforeRemovingCoveredRange.png)
+
+The below image provides covered range at run time after removing
+
+![Gridcontrol after removing the covered range](AfterRemovingCoveredRange.png)
 
 ### Extend covered range at run time
 
 You can extend the covered range at run time by using [Add](https://help.syncfusion.com/cr/wpf/Syncfusion.UI.Xaml.CellGrid.CellSpanInfoCollection-1.html#Syncfusion_UI_Xaml_CellGrid_CellSpanInfoCollection_1_Add__0_) method.
 
 For example, Create one button. Next, clear the current covered cell collection using `Clear` method and create new covered cell ranges by using `Add` method in this click event.
+
+**Note:** Before extend the covered cell range, you need to clear the covered range.
 
 ``` csharp
 //Remove the current covered cell range
@@ -79,3 +92,11 @@ grid.InvalidateCells();
 //Add new covered cell range
 grid.Model.CoveredRanges.Add(new CoveredCellInfo(2, 2, 7, 7));
 ```
+
+The below image provides covered range at run time before extending.
+
+![Gridcontrol with covered range before extending](BeforeExtendingCoveredRange.png)
+
+The below image provides covered range at run time after extending.
+
+![Gridcontrol with convered range after extending](AfterExtendingCoveredRange.png)
